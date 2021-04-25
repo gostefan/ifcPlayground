@@ -19,3 +19,9 @@ message("CXX Flags ${CMAKE_CXX_FLAGS_DEBUG}")
 
 add_subdirectory(src/internal)
 add_subdirectory(src/public)
+
+# Testing only available if this is the main app
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+	add_subdirectory(unitTests)
+endif()
+ 
