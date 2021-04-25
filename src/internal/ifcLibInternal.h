@@ -1,0 +1,1 @@
+#define IFCLIB_INTERNAL_EXPORT __declspec(dllexport)

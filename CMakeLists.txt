@@ -1,7 +1,10 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.14)
 
-# set the project name
-project(ifcPlayground VERSION 0.1)
+project(
+	ifcPlayground
+	VERSION 0.1
+	DESCRIPTION "Let's have some fun with IFC"
+	LANGUAGES CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 set(CMAKE_BUILD_FILES_DIRECTORY ${PROJECT_SOURCE_DIR}/build)
@@ -10,8 +13,9 @@ set(CMAKE_BUILD_FILES_DIRECTORY ${PROJECT_SOURCE_DIR}/build)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# add the executable
-add_executable(ifcPlayground)
+string(REGEX REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
 
-target_include_directories(ifcPlayground PUBLIC "${PROJECT_SOURCE_DIR}/src")
-add_subdirectory(src)
+message("CXX Flags ${CMAKE_CXX_FLAGS_DEBUG}")
+
+add_subdirectory(src/internal)
+add_subdirectory(src/public)
