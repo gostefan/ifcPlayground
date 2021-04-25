@@ -14,7 +14,7 @@
 		{
 			"label": "CMake Build",
 			"type": "shell",
-			"command": "cd ./cmake && cmake .. && cmake --build .",
+			"command": "cmake -S . -B build && cmake --build build",
 			"group": "build",
 		}
 	]
