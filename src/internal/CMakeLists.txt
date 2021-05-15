@@ -3,4 +3,5 @@ add_library(ifcLibInternal STATIC)
 target_include_directories(ifcLibInternal PUBLIC "${PROJECT_SOURCE_DIR}/src/internal")
 
 target_sources(ifcLibInternal PRIVATE
+	IfcFileTokenizer.cpp
 )

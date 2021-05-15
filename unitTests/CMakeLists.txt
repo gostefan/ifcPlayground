@@ -10,6 +10,7 @@ FetchContent_MakeAvailable(gtest)
 
 add_executable(ifcLibUnitTests
 	main.cpp
+	IfcFileTokenizerTests.cpp
 )
 
 target_link_libraries(ifcLibUnitTests PRIVATE ifcLibInternal gtest)
