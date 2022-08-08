@@ -24,3 +24,18 @@ TEST_F(IfcFileTokenizerTests, TwoTokens) {
 	tokenizer.moveToNextToken();
 	EXPECT_FALSE(tokenizer.getCurrentToken());
 }
+
+TEST_F(IfcFileTokenizerTests, NewlineInToken) {
+	std::wistringstream stream(L"a\nb", std::ios_base::in);
+	ifc::in::IfcFileTokenizer tokenizer(stream);
+
+	auto const& token = tokenizer.getCurrentToken();
+	EXPECT_EQ(L"ab", token->getValue());
+	tokenizer.moveToNextToken();
+	auto const [line, pos] = token->getLineAndPos(1);
+	EXPECT_EQ(1, line);
+	EXPECT_EQ(0, pos);
+
+	tokenizer.moveToNextToken();
+	EXPECT_FALSE(tokenizer.getCurrentToken());
+}

@@ -4,4 +4,5 @@ target_include_directories(ifcLibInternal PUBLIC "${PROJECT_SOURCE_DIR}/src/publ
 target_link_libraries(ifcLib PRIVATE ifcLibInternal)
 
 target_sources(ifcLib PRIVATE
+	tmp.cpp
 )
